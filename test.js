@@ -1,6 +1,6 @@
 import fs from 'fs';
 import test from 'ava';
-import jsdom from 'jsdom';
+import jsdom from 'jsdom/lib/old-api';
 
 const m = fs.readFileSync('index.js', 'utf8');
 
