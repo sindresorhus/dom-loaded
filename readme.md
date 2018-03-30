@@ -23,6 +23,11 @@ domLoaded.then(() => {
 ```
 
 
+## Supported browsers
+
+All good if [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) is available in your browser. https://caniuse.com/#feat=promises
+
+
 ## Related
 
 - [element-ready](https://github.com/sindresorhus/element-ready) - Detect when an element is ready in the DOM
