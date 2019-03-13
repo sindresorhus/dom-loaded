@@ -1,23 +1,49 @@
 import fs from 'fs';
 import test from 'ava';
-import jsdom from 'jsdom/lib/old-api';
+import {JSDOM} from 'jsdom';
 
-const m = fs.readFileSync('index.js', 'utf8');
+const domLoaded = fs.readFileSync('index.js', 'utf8');
+const umdWrappedDomLoaded = `
+	window.domLoaded = (() => {
+		const module = {};
+		${domLoaded}
+		return module.exports;
+	})();`;
 
-test.cb(t => {
-	jsdom.env('<div>', {
-		scripts: `window.domLoaded = ${m}`,
-		created: async (err, window) => {
-			let isLoaded = false;
+test('works when included before `DOMContentLoaded` fired', async t => {
+	const {window} = new JSDOM('<body></body>', {
+		runScripts: 'outside-only'
+	});
 
-			window.document.addEventListener('DOMContentLoaded', () => {
-				isLoaded = true;
-			});
+	window.eval(umdWrappedDomLoaded);
 
-			t.false(isLoaded);
-			await window.domLoaded;
-			t.true(isLoaded);
-			t.end();
-		}
+	let isLoaded = false;
+	window.document.addEventListener('DOMContentLoaded', () => {
+		isLoaded = true;
+	});
+
+	t.plan(3);
+	t.false(isLoaded);
+	await window.domLoaded.then(() => {
+		t.pass();
+	});
+	t.true(isLoaded);
+});
+
+test('works when included after `DOMContentLoaded` fired', async t => {
+	const {window} = new JSDOM('<body></body>', {
+		runScripts: 'outside-only'
+	});
+
+	const loadedPromise = new Promise(resolve =>
+		window.document.addEventListener('DOMContentLoaded', resolve)
+	);
+
+	await loadedPromise;
+	window.eval(umdWrappedDomLoaded);
+
+	t.plan(1);
+	await window.domLoaded.then(() => {
+		t.pass();
 	});
 });

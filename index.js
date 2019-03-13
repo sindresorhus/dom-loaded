@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = new Promise(resolve => {
+const domLoaded = new Promise(resolve => {
 	if (document.readyState === 'interactive' || document.readyState === 'complete') {
 		resolve();
 	} else {
@@ -13,3 +13,6 @@ module.exports = new Promise(resolve => {
 		});
 	}
 });
+
+module.exports = domLoaded;
+module.exports.default = domLoaded;
