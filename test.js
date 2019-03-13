@@ -3,6 +3,7 @@ import test from 'ava';
 import {JSDOM} from 'jsdom';
 
 const domLoaded = fs.readFileSync('index.js', 'utf8');
+
 const umdWrappedDomLoaded = `
 	window.domLoaded = (() => {
 		const module = {};

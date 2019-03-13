@@ -17,9 +17,10 @@ $ npm install dom-loaded
 ```js
 const domLoaded = require('dom-loaded');
 
-domLoaded.then(() => {
+(async () => {
+	await domLoaded;
 	console.log('DOM is loaded');
-});
+})():
 ```
 
 
