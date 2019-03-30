@@ -1,4 +1,4 @@
-import {expectType} from 'tsd-check';
-import domLoaded from '.';
+import {expectType} from 'tsd';
+import domLoaded = require('.');
 
 expectType<Promise<void>>(domLoaded);

@@ -15,4 +15,5 @@ const domLoaded = new Promise(resolve => {
 });
 
 module.exports = domLoaded;
+// TODO: remove this in the next major version
 module.exports.default = domLoaded;
