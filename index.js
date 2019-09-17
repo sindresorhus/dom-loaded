@@ -1,7 +1,9 @@
 'use strict';
 
+const hasLoaded = () => document.readyState === 'interactive' || document.readyState === 'complete';
+
 const domLoaded = new Promise(resolve => {
-	if (document.readyState === 'interactive' || document.readyState === 'complete') {
+	if (hasLoaded()) {
 		resolve();
 	} else {
 		document.addEventListener('DOMContentLoaded', () => {
@@ -14,6 +16,8 @@ const domLoaded = new Promise(resolve => {
 	}
 });
 
+Object.defineProperty(domLoaded, 'hasLoaded', {
+	get: () => hasLoaded()
+});
+
 module.exports = domLoaded;
-// TODO: remove this in the next major version
-module.exports.default = domLoaded;

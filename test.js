@@ -18,17 +18,17 @@ test('works when included before `DOMContentLoaded` fired', async t => {
 
 	window.eval(umdWrappedDomLoaded);
 
-	let isLoaded = false;
+	let hasLoaded = false;
 	window.document.addEventListener('DOMContentLoaded', () => {
-		isLoaded = true;
+		hasLoaded = true;
 	});
 
 	t.plan(3);
-	t.false(isLoaded);
+	t.false(hasLoaded);
 	await window.domLoaded.then(() => {
 		t.pass();
 	});
-	t.true(isLoaded);
+	t.true(hasLoaded);
 });
 
 test('works when included after `DOMContentLoaded` fired', async t => {
@@ -47,4 +47,19 @@ test('works when included after `DOMContentLoaded` fired', async t => {
 	await window.domLoaded.then(() => {
 		t.pass();
 	});
+});
+
+test('domLoaded.hasLoaded', async t => {
+	const {window} = new JSDOM('<body></body>', {
+		runScripts: 'outside-only'
+	});
+
+	const loadedPromise = new Promise(resolve =>
+		window.document.addEventListener('DOMContentLoaded', resolve)
+	);
+
+	await loadedPromise;
+	window.eval(umdWrappedDomLoaded);
+
+	t.true(window.domLoaded.hasLoaded);
 });
