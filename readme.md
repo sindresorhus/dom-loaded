@@ -36,7 +36,7 @@ The promise resolves when the DOM finishes loading or right away if the DOM has 
 
 Type: `boolean`
 
-Synchronously check if the DOM has already finished loaded.
+Synchronously check if the DOM has already finished loading.
 
 
 ## Related
