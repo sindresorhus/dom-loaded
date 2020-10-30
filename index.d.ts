@@ -15,7 +15,7 @@ import domLoaded = require('dom-loaded');
 */
 declare const domLoaded: Promise<void> & {
 	/**
-	Synchronously check if the DOM has already finished loaded.
+	Synchronously check if the DOM has already finished loading.
 
 	```
 	import domLoaded = require('dom-loaded');
