@@ -1,4 +1,4 @@
-# dom-loaded [![Build Status](https://travis-ci.org/sindresorhus/dom-loaded.svg?branch=master)](https://travis-ci.org/sindresorhus/dom-loaded)
+# dom-loaded
 
 > Check when the DOM has loaded like [`DOMContentLoaded`](https://developer.mozilla.org/en/docs/Web/Events/DOMContentLoaded)
 
