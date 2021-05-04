@@ -1,4 +1,4 @@
-import fs from 'fs';
+import fs from 'node:fs';
 import test from 'ava';
 import {JSDOM} from 'jsdom';
 
@@ -36,9 +36,9 @@ test('works when included after `DOMContentLoaded` fired', async t => {
 		runScripts: 'outside-only'
 	});
 
-	const loadedPromise = new Promise(resolve =>
-		window.document.addEventListener('DOMContentLoaded', resolve)
-	);
+	const loadedPromise = new Promise(resolve => {
+		window.document.addEventListener('DOMContentLoaded', resolve);
+	});
 
 	await loadedPromise;
 	window.eval(umdWrappedDomLoaded);
@@ -54,9 +54,9 @@ test('domLoaded.hasLoaded', async t => {
 		runScripts: 'outside-only'
 	});
 
-	const loadedPromise = new Promise(resolve =>
-		window.document.addEventListener('DOMContentLoaded', resolve)
-	);
+	const loadedPromise = new Promise(resolve => {
+		window.document.addEventListener('DOMContentLoaded', resolve);
+	});
 
 	await loadedPromise;
 	window.eval(umdWrappedDomLoaded);

@@ -4,25 +4,20 @@
 
 Unlike `DOMContentLoaded`, this also works when included after the DOM was loaded.
 
-
 ## Install
 
 ```
 $ npm install dom-loaded
 ```
 
-
 ## Usage
 
 ```js
-const domLoaded = require('dom-loaded');
+import domLoaded from 'dom-loaded';
 
-(async () => {
-	await domLoaded;
-	console.log('The DOM is now loaded.');
-})();
+await domLoaded;
+console.log('The DOM is now loaded.');
 ```
-
 
 ## API
 
@@ -37,7 +32,6 @@ The promise resolves when the DOM finishes loading or right away if the DOM has 
 Type: `boolean`
 
 Synchronously check if the DOM has already finished loading.
-
 
 ## Related
 

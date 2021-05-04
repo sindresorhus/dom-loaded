@@ -1,5 +1,5 @@
-import {expectType} from 'tsd';
-import domLoaded = require('.');
+import {expectType, expectAssignable} from 'tsd';
+import domLoaded from './index.js';
 
-expectType<Promise<void>>(domLoaded);
+expectAssignable<Promise<void>>(domLoaded);
 expectType<boolean>(domLoaded.hasLoaded);

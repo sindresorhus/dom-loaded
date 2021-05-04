@@ -5,12 +5,10 @@ The promise resolves when the DOM finishes loading or right away if the DOM has 
 
 @example
 ```
-import domLoaded = require('dom-loaded');
+import domLoaded from 'dom-loaded';
 
-(async () => {
-	await domLoaded;
-	console.log('The DOM is now loaded.');
-})();
+await domLoaded;
+console.log('The DOM is now loaded.');
 ```
 */
 declare const domLoaded: Promise<void> & {
@@ -18,14 +16,14 @@ declare const domLoaded: Promise<void> & {
 	Synchronously check if the DOM has already finished loading.
 
 	```
-	import domLoaded = require('dom-loaded');
+	import domLoaded from 'dom-loaded';
 
 	if (domLoaded.hasLoaded) {
 		console.log('The DOM has already finished loading.')
 	}
 	```
 	*/
-	hasLoaded: boolean;
+	readonly hasLoaded: boolean;
 };
 
-export = domLoaded;
+export default domLoaded;

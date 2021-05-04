@@ -1,5 +1,3 @@
-'use strict';
-
 const hasLoaded = () => document.readyState === 'interactive' || document.readyState === 'complete';
 
 const domLoaded = new Promise(resolve => {
@@ -16,8 +14,8 @@ const domLoaded = new Promise(resolve => {
 	}
 });
 
+export default domLoaded;
+
 Object.defineProperty(domLoaded, 'hasLoaded', {
 	get: () => hasLoaded()
 });
-
-module.exports = domLoaded;
