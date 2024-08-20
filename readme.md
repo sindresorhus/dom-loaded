@@ -6,8 +6,8 @@ Unlike `DOMContentLoaded`, this also works when included after the DOM was loade
 
 ## Install
 
-```
-$ npm install dom-loaded
+```sh
+npm install dom-loaded
 ```
 
 ## Usage
