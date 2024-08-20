@@ -9,7 +9,7 @@ const domLoaded = new Promise(resolve => {
 		}, {
 			capture: true,
 			once: true,
-			passive: true
+			passive: true,
 		});
 	}
 });
@@ -17,5 +17,5 @@ const domLoaded = new Promise(resolve => {
 export default domLoaded;
 
 Object.defineProperty(domLoaded, 'hasLoaded', {
-	get: () => hasLoaded()
+	get: () => hasLoaded(),
 });

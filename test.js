@@ -13,7 +13,7 @@ const umdWrappedDomLoaded = `
 
 test('works when included before `DOMContentLoaded` fired', async t => {
 	const {window} = new JSDOM('<body></body>', {
-		runScripts: 'outside-only'
+		runScripts: 'outside-only',
 	});
 
 	window.eval(umdWrappedDomLoaded);
@@ -33,7 +33,7 @@ test('works when included before `DOMContentLoaded` fired', async t => {
 
 test('works when included after `DOMContentLoaded` fired', async t => {
 	const {window} = new JSDOM('<body></body>', {
-		runScripts: 'outside-only'
+		runScripts: 'outside-only',
 	});
 
 	const loadedPromise = new Promise(resolve => {
@@ -51,7 +51,7 @@ test('works when included after `DOMContentLoaded` fired', async t => {
 
 test('domLoaded.hasLoaded', async t => {
 	const {window} = new JSDOM('<body></body>', {
-		runScripts: 'outside-only'
+		runScripts: 'outside-only',
 	});
 
 	const loadedPromise = new Promise(resolve => {
