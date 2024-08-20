@@ -19,7 +19,7 @@ const domLoaded = new Promise(resolve => {
 export default domLoaded;
 
 Object.defineProperty(domLoaded, 'hasLoaded', {
-	get: () => hasLoaded()
+	get: () => controller.signal.aborted
 });
 
 Object.defineProperty(domLoaded, 'signal', {
