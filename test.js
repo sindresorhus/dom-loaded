@@ -66,7 +66,7 @@ test('domLoaded.hasLoaded', async t => {
 
 test('domLoaded.signal', async t => {
 	const {window} = new JSDOM('<body></body>', {
-		runScripts: 'outside-only'
+		runScripts: 'outside-only',
 	});
 
 	const loadedPromise = new Promise(resolve => {
