@@ -15,7 +15,7 @@ declare const domLoaded: Promise<void> & {
 	/**
 	Synchronously check if the DOM has already finished loading.
 
- 	@example
+	@example
 	```
 	import domLoaded from 'dom-loaded';
 
@@ -29,7 +29,7 @@ declare const domLoaded: Promise<void> & {
 	/**
 	AbortSignal that is aborted when the DOM has already finished loading.
 
- 	@example
+	@example
 	```
 	import domLoaded from 'dom-loaded';
 
