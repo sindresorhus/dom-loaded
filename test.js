@@ -63,3 +63,18 @@ test('domLoaded.hasLoaded', async t => {
 
 	t.true(window.domLoaded.hasLoaded);
 });
+
+test('domLoaded.signal', async t => {
+	const {window} = new JSDOM('<body></body>', {
+		runScripts: 'outside-only'
+	});
+
+	const loadedPromise = new Promise(resolve => {
+		window.document.addEventListener('DOMContentLoaded', resolve);
+	});
+
+	await loadedPromise;
+	window.eval(umdWrappedDomLoaded);
+
+	t.true(window.domLoaded.signal.aborted);
+});
