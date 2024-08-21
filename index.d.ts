@@ -36,7 +36,7 @@ declare const domLoaded: Promise<void> & {
 	showLoader({signal: domLoaded.signal});
 	```
 	*/
-	readonly signal: boolean;
+	readonly signal: AbortSignal;
 };
 
 export default domLoaded;
