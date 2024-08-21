@@ -3,3 +3,4 @@ import domLoaded from './index.js';
 
 expectAssignable<Promise<void>>(domLoaded);
 expectType<boolean>(domLoaded.hasLoaded);
+expectType<AbortSignal>(domLoaded.signal);

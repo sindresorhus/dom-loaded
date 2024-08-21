@@ -33,6 +33,12 @@ Type: `boolean`
 
 Synchronously check if the DOM has already finished loading.
 
+### domLoaded.signal
+
+Type: [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal)
+
+An `AbortSignal` that triggers when the DOM finishes loading or immediately if it has already loaded.
+
 ## Related
 
 - [element-ready](https://github.com/sindresorhus/element-ready) - Detect when an element is ready in the DOM
