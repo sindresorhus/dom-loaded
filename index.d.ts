@@ -27,7 +27,7 @@ declare const domLoaded: Promise<void> & {
 	readonly hasLoaded: boolean;
 
 	/**
-	AbortSignal that is aborted when the DOM has already finished loading.
+	An `AbortSignal` that triggers when the DOM finishes loading or immediately if it has already loaded.
 
 	@example
 	```
@@ -36,7 +36,7 @@ declare const domLoaded: Promise<void> & {
 	showLoader({signal: domLoaded.signal});
 	```
 	*/
-	readonly hasLoaded: boolean;
+	readonly signal: boolean;
 };
 
 export default domLoaded;
