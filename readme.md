@@ -37,7 +37,7 @@ Synchronously check if the DOM has already finished loading.
 
 Type: [`AbortSignal`](https://developer.mozilla.org/en-US/docs/Web/API/AbortSignal)
 
-`AbortSignal` that is aborted when the DOM has already finished loading.
+An `AbortSignal` that triggers when the DOM finishes loading or immediately if it has already loaded.
 
 ## Related
 
