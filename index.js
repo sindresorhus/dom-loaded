@@ -1,5 +1,7 @@
 const hasLoaded = () => document.readyState === 'interactive' || document.readyState === 'complete';
+
 const controller = new AbortController();
+
 const domLoaded = new Promise(resolve => {
 	if (hasLoaded()) {
 		resolve();
